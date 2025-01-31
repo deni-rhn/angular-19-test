@@ -1,0 +1,60 @@
+/* Shimmer table container */
+.shimmer-table-loader {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Shimmering effect for table header */
+.shimmer-th, .shimmer-td {
+  background-color: #e0e0e0;
+  height: 20px;
+  border-radius: 4px;
+  margin: 5px 0;
+  position: relative;
+}
+
+/* Shimmer Effect Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+/* Apply shimmer animation */
+.shimmer-th, .shimmer-td {
+  background: linear-gradient(90deg, #f0f0f0 25%, #d0d0d0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+
+/* Header Shimmer */
+.shimmer-th {
+  width: 25%;
+  margin-bottom: 10px;
+}
+
+/* Table cell shimmer */
+.shimmer-td {
+  width: 25%;
+  margin-bottom: 10px;
+}
+
+/* Adjust for the table rows and columns */
+tbody tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+th, td {
+  padding: 10px;
+}

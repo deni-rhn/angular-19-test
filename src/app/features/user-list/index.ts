@@ -1,0 +1,1 @@
+export { UserTableComponent } from './components/user-table/user-table.component';

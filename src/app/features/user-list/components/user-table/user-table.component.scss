@@ -1,0 +1,13 @@
+.user-table {
+  &__filter {
+    margin-top: 25px;
+    display: flex;
+    justify-content: end;
+    input {
+      width: 200px;
+    }
+  }
+  &__content {
+    margin: 10px 0 25px 0;
+  }
+}

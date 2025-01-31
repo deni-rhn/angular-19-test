@@ -1,0 +1,41 @@
+@mixin screen($breakpoint) {
+  @if $breakpoint == smobile {
+    @media only screen and (min-width: 0px) and (max-width:319px) {
+      @content
+    }
+  } @else if $breakpoint == mobile {
+    @media only screen and (min-width: 320px) and (max-width:580px) {
+      @content
+    }
+  } @else if $breakpoint == tablet {
+    @media only screen and (min-width: 600px) and (max-width:1024px) {
+      @content
+    }
+  } @else if $breakpoint == tablet-landscape {
+    @media (orientation: landscape) and (min-width: 1025px) and (max-width: 1280px) {
+      @content
+    }
+  } @else if $breakpoint == laptop {
+    @media only screen and (min-width: 769px) and (max-width:1024px) {
+      @content
+    }
+  } @else if $breakpoint == ldesktop {
+    @media only screen and (min-width: 1367px) and (max-width: 3456px) {
+      @content
+    }
+  } @else if $breakpoint == desktop {
+    @media only screen and (min-width: 1025px) and (max-width:22000px) {
+      @content
+    }
+  } @else if $breakpoint == hsmobile {
+    @media only screen and (min-height: 0px) and (max-height: 667px) and (max-width:580px) {
+      @content
+    }
+  } @else if $breakpoint == hmobile {
+    @media only screen and (min-height: 668px) and (max-height: 900px) and (max-width:580px) {
+      @content
+    }
+  } @else {
+    @error "Unknown direction #{$breakpoint}.";
+  }
+}

@@ -1,0 +1,11 @@
+<div class="user-table">
+    <div class="user-table__filter">
+        <input type="text" class="common-input" placeholder="Search..." (input)="onSearch($event)">
+    </div>
+    <app-table-loading *ngIf="loading"></app-table-loading>
+    <div class="user-table__content" *ngIf="!loading">
+        <app-table [data]="data" [columns]="tableColumns" [keyValues]="keyValues" [isNoResult]="isNoResult"
+            [redirectDetailKey]="redirectDetailKey" [redirectExternalKey]="redirectExternalKey"
+            [isErrorResult]="isErrorResult"></app-table>
+    </div>
+</div>

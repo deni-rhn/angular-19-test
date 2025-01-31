@@ -1,0 +1,67 @@
+@import 'src/assets/styles/responsive.scss';
+
+.user-profile {
+  margin-top: 25px;
+  &__top {
+    gap: 20px;
+    @include screen('mobile') {
+      display: block;
+    }
+    &--image {
+      width: 80px;
+      height: 80px;
+      background-color: #009879;
+      position: relative;
+      border-radius: 50%;
+      @include screen('mobile') {
+        margin: 0 auto;
+      }
+      .initial {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 30px;
+        color: #FFF;    
+      }
+    }
+    &--info {
+      @include screen('mobile') {
+        text-align: center;
+        margin-top: 12px;
+      }
+      .name {
+        font-size: 25px;
+        @include screen('mobile') {
+          font-size: 18px;
+        }
+      }
+      .contact {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 15px;
+        @include screen('mobile') {
+          display: block;
+          margin-top: 8px;
+          p {
+            font-size: 14px;
+          }
+        }
+        .dot {
+          width: 4px;
+          height: 4px;
+          background-color: #C4C8D1;
+          border-radius: 10px;
+          @include screen('mobile') {
+            display: none;
+          }
+        }
+        .link {
+          cursor: pointer;
+          color: #1D63ED;
+        }
+      }
+    }
+  }
+}

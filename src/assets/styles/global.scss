@@ -1,0 +1,30 @@
+.fixed-allignment {
+  margin: auto;
+  max-width: 1280px !important;
+  padding: 0 8px;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mt-0 {
+  margin-top: 0;
+}
+html {
+  background-color: #f9f9f9;
+}
+body {
+  margin: 0;
+}
+.common-input {
+  border: 1px solid #BCBCBD;
+  outline: unset;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #2A2A2E;
+}
+p {
+  margin: 0;
+}
+.flex {
+  display: flex;
+}
