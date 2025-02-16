@@ -1,11 +1,18 @@
 <div class="user-table">
     <div class="user-table__filter">
-        <input type="text" class="common-input" placeholder="Search..." (input)="onSearch($event)">
+        <input [(ngModel)]="searchValue" #searchInput type="text" class="common-input" placeholder="Search..." (keydown.enter)="onSearch()">
     </div>
-    <app-table-loading *ngIf="loading"></app-table-loading>
-    <div class="user-table__content" *ngIf="!loading">
-        <app-table [data]="data" [columns]="tableColumns" [keyValues]="keyValues" [isNoResult]="isNoResult"
-            [redirectDetailKey]="redirectDetailKey" [redirectExternalKey]="redirectExternalKey"
-            [isErrorResult]="isErrorResult"></app-table>
+    <app-table-loading *ngIf="loading$ | async"></app-table-loading>
+
+    <div class="user-table__content">
+        <app-table *ngIf="!(loading$ | async)" 
+            [data]="(users$ | async) ? (users$ | async) : []" 
+            [columns]="tableColumns" 
+            [keyValues]="keyValues" 
+            [isNoResult]="((users$ | async) ? (users$ | async) : [])?.length === 0"
+            [redirectDetailKey]="redirectDetailKey" 
+            [redirectExternalKey]="redirectExternalKey"
+            [isErrorResult]="error$ | async">
+        </app-table>
     </div>
 </div>

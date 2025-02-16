@@ -1,6 +1,7 @@
 export interface User {
   id: number;
   name: string;
+  [key: string]: any;
   username?: string;
   email: string;
   address?: {
@@ -19,5 +20,5 @@ export interface User {
     name: string;
     catchPhrase: string;
     bs: string;
-  }
+  };
 }

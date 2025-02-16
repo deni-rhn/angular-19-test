@@ -1,32 +1,33 @@
 <div class="table-components">
-  <table>
-    <thead>
+    <table>
+      <thead>
         <tr>
-            <th *ngFor="let column of columns">{{column?.title ?? '-'}}</th>
+          <th *ngFor="let column of columns">{{column?.title ?? '-'}}</th>
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody *ngIf="data !== null">
         <tr *ngFor="let item of data">
-            <td *ngFor="let key of keyValues">
-                <span *ngIf="![redirectDetailKey, redirectExternalKey].includes(key)" (click)="openMail(item[key])">
-                    {{item[key]}}
-                </span>
-                <span class="redirect-detail" *ngIf="key == redirectDetailKey" (click)="openDetail(item[key])">
-                    {{item[key]}}
-                </span>
-                <span class="redirect-external" *ngIf="key == redirectExternalKey" (click)="openExternalUrl(item[key])">
-                    {{item[key]}}
-                </span>
-            </td>
+          <td *ngFor="let key of keyValues">
+            <span *ngIf="![redirectDetailKey, redirectExternalKey].includes(key)" (click)="openMail(item[key])">
+              {{item[key]}}
+            </span>
+            <span class="redirect-detail" *ngIf="key == redirectDetailKey" (click)="openDetail(item[key])">
+              {{item[key]}}
+            </span>
+            <span class="redirect-external" *ngIf="key == redirectExternalKey" (click)="openExternalUrl(item[key])">
+              {{item[key]}}
+            </span>
+          </td>
         </tr>
-    </tbody>
-  </table>
-  <div class="table-components__error">
-    <div class="table-components__error--msg" *ngIf="!isNoResult && isErrorResult">
-        Error occured on the server, <span>Reload it!</span>
-    </div>
-    <div class="table-components__error--msg" *ngIf="isNoResult && !isErrorResult">
+      </tbody>
+    </table>
+    <div class="table-components__error">
+      <div class="table-components__error--msg" *ngIf="!isNoResult && isErrorResult">
+        Error occurred on the server, <span>Reload it!</span>
+      </div>
+      <div class="table-components__error--msg" *ngIf="isNoResult && !isErrorResult">
         No result found
+      </div>
     </div>
   </div>
-</div>
+  

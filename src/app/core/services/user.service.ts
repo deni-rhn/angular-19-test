@@ -1,6 +1,6 @@
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { catchError, map, Observable } from "rxjs";
+import { catchError, map } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class UserService {
   ) {}
 
   fetchUserList() {
-    return this.http.get(`${this.apiUrl}/users`).pipe(
+    return this.http.get(`${this.apiUrl}/users?v=${Date.now()}`).pipe(
       map((result) => result),
       catchError((error) => error)
     );

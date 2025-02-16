@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { TableColumns } from '@core/models/table-columns';
 import { User } from '@core/models/user';
 import { openUrl } from '@core/utils/openUrl';
@@ -15,14 +14,13 @@ import { openUrl } from '@core/utils/openUrl';
 export class TableComponent {
   @Input() columns: TableColumns[] = [];
   @Input() keyValues: string[] = [];
-  @Input() data: any[] = [];
+  @Input() data: User[] | null = [];
   @Input() isNoResult: boolean = false;
-  @Input() isErrorResult: boolean = false;
+  @Input() isErrorResult: boolean | null = false;
   @Input() redirectDetailKey!: string;
   @Input() redirectExternalKey!: string;
 
   constructor(
-    private router: Router
   ) {}
 
   openExternalUrl(url: string) {
@@ -31,8 +29,8 @@ export class TableComponent {
 
   openDetail(id: string) {
     const param: string = id.replace(' ', '-');
-    const idParam: User = this.data.find(item => item.name === id) as User;
-    this.router.navigateByUrl(`/list/${param}--${idParam.id}`);
+    const idParam: User = this.data?.find(item => item.name === id) as User;
+    window.open(`/list/${param}--${idParam.id}`, '_blank');
   }
 
   openMail(email: string) {
